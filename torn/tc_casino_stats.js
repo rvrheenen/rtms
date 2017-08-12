@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         Rick's TC scripts | Casino Stats
 // @namespace    http://tampermonkey.net/
-// @version      0.4
+// @version      0.5
 // @description  Enhance casino stats
 // @author       Rick van Rheenen
 // @match        *://www.torn.com/loader.php?sid=view*Stats
 // @require      http://code.jquery.com/jquery-latest.js
-// @downloadURL  https://raw.githubusercontent.com/rvrheenen/tctms/master/tc_casino_stats.js
-// @updateUrl    https://raw.githubusercontent.com/rvrheenen/tctms/master/tc_casino_stats.js
+// @downloadURL  https://raw.githubusercontent.com/rvrheenen/tctms/master/torn/tc_casino_stats.js
+// @updateUrl    https://raw.githubusercontent.com/rvrheenen/tctms/master/torn/tc_casino_stats.js
 // ==/UserScript==
 
 (function() {
