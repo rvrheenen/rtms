@@ -1,2 +1,3 @@
-# tctms
-Torn City TamperMonkey Scripts
+# Rick's TamperMonkey Scripts
+## Torn
+### Casino Statistics
