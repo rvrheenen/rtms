@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Rick's TC scripts | Casino Stats
 // @namespace    http://tampermonkey.net/
-// @version      0.3
+// @version      0.4
 // @description  Enhance casino stats
 // @author       Rick van Rheenen
 // @match        *://www.torn.com/loader.php?sid=view*Stats
@@ -21,56 +21,33 @@
         return '$' + number.toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
     }
 
-    // PERSONAL STATISTICS
-    if ($('li .stat:contains("Total money gain")').length == 1) {
-        var moneyGain = $('li .stat:contains("Total money gain")').next().text().trim();
-        var moneyLoss = $('li .stat:contains("Total money loss")').next().text().trim();
-        
-        var profit = cur2num(moneyGain) - cur2num(moneyLoss);
-        
-        var profitDisplayColor = "";
-        if (profit > 0) {
-            profitDisplayColor = "green";
-        } else if (profit < 0) {
-            profitDisplayColor = "red";
-        }
+    function showProfits(gainLI, lossLI) {
+        if (gainLI.length == 1) {
+            var moneyGain = gainLI.next().text().trim();
+            var moneyLoss = lossLI.next().text().trim();
+            
+            var profit = cur2num(moneyGain) - cur2num(moneyLoss);
+            
+            var profitDisplayColor = "";
+            if (profit > 0) {
+                profitDisplayColor = "green";
+            } else if (profit < 0) {
+                profitDisplayColor = "red";
+            }
 
-        $('li .stat:contains("Total money loss")').parent().parent().after('\
-        <li> \
-            <ul class="item"> \
-                <li class="stat"> \
-                    Total profit:<span class="m-show">:</span> \
-                </li><li class="stat-value"><font color="' + profitDisplayColor + '">' + num2cur(profit) +'</font></li> \
-                <li class="clear"></li> \
-            </ul> \
-        </li>');
+            lossLI.parent().parent().after('\
+            <li> \
+                <ul class="item"> \
+                    <li class="stat"> \
+                        Total profit:<span class="m-show">:</span> \
+                    </li><li class="stat-value"><font color="' + profitDisplayColor + '">' + num2cur(profit) +'</font></li> \
+                    <li class="clear"></li> \
+                </ul> \
+            </li>'); 
+        }
     }
 
-    // OVERALL STATISTICS
-    if ($('li .stat:contains("Total money won")').length == 1) {
-        var moneyGain = $('li .stat:contains("Total money won")').next().text().trim();
-        var moneyLoss = $('li .stat:contains("Total money lost")').next().text().trim();
-        
-        var profit = cur2num(moneyGain) - cur2num(moneyLoss);
-        
-        var profitDisplayColor = "";
-        if (profit > 0) {
-            profitDisplayColor = "green";
-        } else if (profit < 0) {
-            profitDisplayColor = "red";
-        }
+    showProfits( $('li .stat:contains("Total money gain")'), $('li .stat:contains("Total money loss")') ); // Personal Statistics
+    showProfits( $('li .stat:contains("Total money won")'), $('li .stat:contains("Total money lost")') ); // Global Statistics
 
-        $('li .stat:contains("Total money lost")').parent().parent().after('\
-        <li> \
-            <ul class="item"> \
-                <li class="stat"> \
-                    Total profit:<span class="m-show">:</span> \
-                </li><li class="stat-value"><font color="' + profitDisplayColor + '">' + num2cur(profit) +'</font></li> \
-                <li class="clear"></li> \
-            </ul> \
-        </li>');
-        
-        
-        
-    }
 })();
