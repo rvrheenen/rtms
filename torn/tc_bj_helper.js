@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Rick's TC scripts | BlackJack Helper
 // @namespace    http://tampermonkey.net/
-// @version      0.1.3
+// @version      0.1.4
 // @description  Enhance casino stats
 // @author       Rick van Rheenen
 // @match        *://www.torn.com/loader.php?sid=blackjack
@@ -40,7 +40,7 @@
             <button type="button" id="betting-table-opener" style="\
                 position: absolute;\
                 visibility: visible;\
-                right: 15%;\
+                right: 1%;\
                 top: 150px;\
                 z-index: 200;\
             ">Open betting table</button>');
@@ -56,11 +56,11 @@
                 z-index: 200;\
             ">\
           <tbody><tr bgcolor="#000000">\
-            <td colspan="11" bgcolor="#333333"><div align="center" style="color: #FFFFFF; font-weight: bold; font-size: 16px;">Dealers Card Showing:</div></td>\
-            <td colspan="1" bgcolor="#333333"><button id="betting-table-closer">close</button></td>\
+            <td colspan="1" bgcolor="#333333"><div align="center" style="color: #FFFFFF; font-weight: bold; font-size: 12px;">Hand:</div></td>\
+            <td colspan="9" bgcolor="#333333"><div align="center" style="color: #FFFFFF; font-weight: bold; font-size: 16px;">Dealers Card Showing:</div></td>\
+            <td colspan="1"><button id="betting-table-closer">close</button></td>\
           </tr>\
           <tr>\
-            <td rowspan="35" bgcolor="#333333"><div align="center" style="color: #FFFFFF; font-weight: bold; font-size: 16px;">Your Hand: </div></td>\
             <td bgcolor="#006600"><div align="center"><span style="color: #FFFFFF; font-weight: bold; font-size: 14px;">&nbsp;</span></div></td>\
             <td bgcolor="#006600"><div align="center"><span style="color: #FFFFFF; font-weight: bold; font-size: 14px;">2</span></div></td>\
             <td bgcolor="#006600"><div align="center"><span style="color: #FFFFFF; font-weight: bold; font-size: 14px;">3</span></div></td>\
