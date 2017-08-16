@@ -26,12 +26,12 @@
 
 
 
-    $("body").on("click", "betting-table-closer", function(){
+    $("body").on("click", "#betting-table-closer", function(){
         $("#betting-table").remove();
         showBettingOpener();
     });
 
-    $("body").on("click", "betting-table-opener", function(){
+    $("body").on("click", "#betting-table-opener", function(){
         $("#betting-table-opener").remove();
         showBettingTable();
     });
@@ -58,7 +58,7 @@
             ">\
           <tbody><tr bgcolor="#000000">\
             <td colspan="11" bgcolor="#333333"><div align="center" style="color: #FFFFFF; font-weight: bold; font-size: 16px;">Dealers Card Showing:</div></td>\
-            <td colspan="1" bgcolor="#333333"><div id="betting-table-closer" align="center" style="color: #FFFFFF; font-weight: bold; font-size: 16px;">X</div></td>\
+            <td colspan="1" bgcolor="#333333"><button id="betting-table-closer">close</button></td>\
           </tr>\
           <tr>\
             <td rowspan="35" bgcolor="#333333"><div align="center" style="color: #FFFFFF; font-weight: bold; font-size: 16px;">Your Hand: </div></td>\
