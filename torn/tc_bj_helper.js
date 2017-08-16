@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Rick's TC scripts | BlackJack Helper
 // @namespace    http://tampermonkey.net/
-// @version      0.1.1
+// @version      0.1.2
 // @description  Enhance casino stats
 // @author       Rick van Rheenen
 // @match        *://www.torn.com/loader.php?sid=blackjack
