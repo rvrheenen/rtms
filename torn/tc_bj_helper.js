@@ -5,8 +5,8 @@
 // @description  Enhance casino stats
 // @author       Rick van Rheenen
 // @match        *://www.torn.com/loader.php?sid=blackjack
-// @downloadURL  https://raw.githubusercontent.com/rvrheenen/tctms/master/torn/tc_bj_helper.js
-// @updateUrl    https://raw.githubusercontent.com/rvrheenen/tctms/master/torn/tc_bj_helper.js
+// @downloadURL  https://raw.githubusercontent.com/rvrheenen/rtms/master/torn/tc_bj_helper.js
+// @updateUrl    https://raw.githubusercontent.com/rvrheenen/rtms/master/torn/tc_bj_helper.js
 // ==/UserScript==
 
 
