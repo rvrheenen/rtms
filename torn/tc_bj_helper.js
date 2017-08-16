@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Rick's TC scripts | BlackJack Helper
 // @namespace    http://tampermonkey.net/
-// @version      0.1.2
+// @version      0.1.3
 // @description  Enhance casino stats
 // @author       Rick van Rheenen
 // @match        *://www.torn.com/loader.php?sid=blackjack
@@ -23,7 +23,6 @@
             showBettingOpener();
         }
     }
-
 
 
     $("body").on("click", "#betting-table-closer", function(){
