@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Rick's TC scripts | BlackJack Helper
 // @namespace    http://tampermonkey.net/
-// @version      0.1.0
+// @version      0.1.1
 // @description  Enhance casino stats
 // @author       Rick van Rheenen
 // @match        *://www.torn.com/loader.php?sid=blackjack
@@ -11,14 +11,32 @@
 
 
 (function() {
+    // SETTINGS
+        var enableBettingTable = true;
+        var startWithTableOpen = true;
+    // END SETTINGS    
     
-    
-
+    if (enableBettingTable) {
+        if (startWithTableOpen) {
+            showBettingTable();
+        } else {
+            showBettingOpener();
+        }
+    }
 
 
 
     $("body").on("click", "betting-table-closer", function(){
         $("#betting-table").remove();
+        showBettingOpener();
+    });
+
+    $("body").on("click", "betting-table-opener", function(){
+        $("#betting-table-opener").remove();
+        showBettingTable();
+    });
+
+    function showBettingOpener() {
         $("body").append('\
             <button type="button" id="betting-table-opener" style="\
                 position: absolute;\
@@ -27,12 +45,7 @@
                 top: 150px;\
                 z-index: 200;\
             ">Open betting table</button>');
-    });
-
-    $("body").on("click", "betting-table-opener", function(){
-        $("#betting-table-opener").remove();
-        showBettingTable();
-    });
+    }
 
     function showBettingTable() {
         $("body").append('\
