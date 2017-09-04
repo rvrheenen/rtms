@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         Rick's TC scripts | Market Buyer
 // @namespace    http://tampermonkey.net/
-// @version      0.1.1
+// @version      0.1.2
 // @description  Buy the first item in the market
 // @author       Rick van Rheenen
-// @match        *://www.torn.com/imarket.php*/p=shop*
+// @match        *://www.torn.com/imarket.php*
 // @downloadURL  https://raw.githubusercontent.com/rvrheenen/rtms/master/torn/tc_market_buyer.js
 // @updateUrl    https://raw.githubusercontent.com/rvrheenen/rtms/master/torn/tc_market_buyer.js
 // ==/UserScript==
@@ -52,15 +52,17 @@
                 ">Buy first!</button>\
             </span>\
         </span>';
-
-        $('#item-market-main-wrap > div.shop-market-page > div > div.market-search div.cont.right > form').append(button_html);
+        if ($('#item-market-main-wrap > div.shop-market-page > div > div.market-search div.cont.right > form').length > 0) {
+            $('#item-market-main-wrap > div.shop-market-page > div > div.market-search div.cont.right > form').append(button_html);
+        }
     }
 
     addBuyFirstButton();
-
-    $('#buy-first').on('click', function(){
-        buyFirst();
-    });
+    if ($('#buy-first').length > 0) {
+        $('#buy-first').on('click', function(){
+            buyFirst();
+        });
+    }
 
 
     /* BUYING MULTIPLE ISN'T READY YET.
