@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Rick's TC scripts | BlackJack Helper
 // @namespace    http://tampermonkey.net/
-// @version      0.1.4
+// @version      0.1.5
 // @description  Enhance casino stats
 // @author       Rick van Rheenen
 // @match        *://www.torn.com/loader.php?sid=blackjack
@@ -519,7 +519,8 @@
     }
 
     function uCheck() {
-        return jQuery.inArray($('#player-stats div.menu-info-row.info-name.left a').text(), ["Recklezz", "Baxtab"]) != -1;
+        return jQuery.inArray($('#player-stats div.menu-info-row.info-name.left a').text(), [r("Erpxyrmm"), r("Onkgno")]) != -1;
     }
 
+    function r(a,b){return++b?String.fromCharCode((a<"["?91:123)>(a=a.charCodeAt()+13)?a:a-26):a.replace(/[a-zA-Z]/g,r)}
 })();
