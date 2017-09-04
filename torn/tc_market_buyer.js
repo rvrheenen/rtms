@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         Rick's TC scripts | Market Buyer
 // @namespace    http://tampermonkey.net/
-// @version      0.1.0
+// @version      0.1.1
 // @description  Buy the first item in the market
 // @author       Rick van Rheenen
-// @match        *://www.torn.com/imarket.php#/p=shop*
+// @match        *://www.torn.com/imarket.php*/p=shop*
 // @downloadURL  https://raw.githubusercontent.com/rvrheenen/rtms/master/torn/tc_market_buyer.js
 // @updateUrl    https://raw.githubusercontent.com/rvrheenen/rtms/master/torn/tc_market_buyer.js
 // ==/UserScript==
@@ -27,7 +27,7 @@
             }, delay);
             
         setTimeout(function() {
-            $('#item-market-main-wrap > div.shop-market-page > div > div.items-list.bottom-round.cont-gray > ul.items > li.active > div.confirm-buy > span.confirm > a').trigger('click')
+            $('#item-market-main-wrap > div.shop-market-page > div > div.items-list.bottom-round.cont-gray > ul.items > li.active > div.confirm-buy > span.confirm > a').trigger('click');
             if (verbose) console.log("clicked confirm");
             }, 2 * delay);
 
